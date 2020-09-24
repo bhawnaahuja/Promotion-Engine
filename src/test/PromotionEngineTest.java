@@ -17,7 +17,7 @@ public class PromotionEngineTest {
 		items.add(new Item("A"));
 		items.add(new Item("B"));
 		items.add(new Item("C"));
-		Assert.assertEquals(100L, PromotionEngineApplication.getTotalPrice(items).longValue());
+		Assert.assertEquals(100L, PromotionEngineApplication.getTotalPrice(items,1).longValue());
 		
 		
 	}
@@ -36,27 +36,13 @@ public class PromotionEngineTest {
 		items.add(new Item("B"));
 		items.add(new Item("B"));
 		items.add(new Item("C"));
-		Assert.assertEquals(370L, PromotionEngineApplication.getTotalPrice(items).longValue());
+		Assert.assertEquals(390L, PromotionEngineApplication.getTotalPrice(items,2).longValue());
 		
 		
 	}
 
-	@Test
-	public void Scenario3() {
-		List<Item> items = new ArrayList<Item>();
-		items.add(new Item("A"));
-		items.add(new Item("A"));
-		items.add(new Item("A"));
-		items.add(new Item("B"));
-		items.add(new Item("B"));
-		items.add(new Item("B"));
-		items.add(new Item("B"));
-		items.add(new Item("B"));
-		items.add(new Item("C"));
-		items.add(new Item("D"));
-		
-		Assert.assertEquals(280L, PromotionEngineApplication.getTotalPrice(items).longValue());
+	
 		
 		
-	}
+	
 }
