@@ -12,26 +12,29 @@ public class PromotionEngineApplication {
 
 	/*
 	 * This code is based on the assumption at a time only one promotion can be
-	 * applied
+	 * applied.
+	 * The user has to enter the no of items and then add items in the cart.
 	 */
 	private static final List<Promotion> promotionsList = new ArrayList<>();
 	static {
-		Map promotionCountMap = new HashMap<String, Integer>();
+		Map<String, Integer> promotionCountMap = new HashMap<String, Integer>();
 		promotionCountMap.put("A", 3);
-
+		Promotion P1 = new Promotion(1, 130L, promotionCountMap);
 		promotionCountMap = new HashMap<String, Integer>();
 		promotionCountMap.put("B", 2);
-		Promotion P1 = new Promotion(1, 130L, promotionCountMap);
+		
 		Promotion P2 = new Promotion(2, 45L, promotionCountMap);
+		
 		promotionsList.add(P1);
 		promotionsList.add(P2);
+		
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Number of  items to be ordered");
 		int itemCount = sc.nextInt();
-		List<Item> items = new ArrayList();
+		List<Item> items = new ArrayList<Item>();
 		for (int i = 0; i < itemCount; i++) {
 			System.out.println("Enter Item Name ");
 			String name = sc.next();
@@ -44,6 +47,7 @@ public class PromotionEngineApplication {
 
 		System.out.println(getTotalPrice(items, promoId));
 		sc.close();
+	
 
 	}
 
